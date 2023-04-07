@@ -1,0 +1,27 @@
+{% extends 'main.html'%}
+
+{% block content %}
+
+<form method="post">
+{%csrf_token%}
+<input type="text" name="p" >
+</form>
+
+{% if data.country_code%}
+<p>country name :{{ data.country_code}}</p>
+<p>coordinates :{{ data.coordinate}}</p>
+<p>temp :{{data.temp }}</p>
+
+{%if country_info%}
+<p>more info :</p>
+<li>
+    <h3>{{ country_info.name }}</h3>
+    <p><strong>Capital:</strong> {{ country_info.capital }}</p>
+    <p><strong>Region:</strong> {{ country_info.region }}</p>
+    
+</li>
+{%endif%}
+
+{%endif%}
+
+{% endblock%}
